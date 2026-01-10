@@ -44,6 +44,7 @@ const savestatusCommand = require('./commands/savestatus');
 const unpairCommand = require('./commands/unpair');
 const autojoinCommand = require('./commands/autojoin');
 const pairCommand = require('./commands/pair');
+const channelCommand = require('./commands/channel');
 const tagAllCommand = require('./commands/tagall');
 const helpCommand = require('./commands/help');
 const banCommand = require('./commands/ban');
@@ -379,6 +380,15 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await savestatusCommand(sock, chatId, message);
                 commandExecuted = true;
                 break;
+            case userMessage.startsWith('.channel'):
+case userMessage.startsWith('.jid'):
+case userMessage.startsWith('.dp'):
+case userMessage.startsWith('.about'):
+case userMessage.startsWith('.lastseen'):
+case userMessage.startsWith('.profile'):
+case userMessage.startsWith('.download'):
+    await channelCommand.execute(sock, chatUpdate, isFromMe);
+    break;
 
             case userMessage.startsWith('.unpair'):
                 const unpairArgs = rawText.slice(7).trim();
