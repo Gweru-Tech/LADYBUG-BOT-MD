@@ -381,16 +381,9 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 commandExecuted = true;
                 break;
             case userMessage.startsWith('.channel'):
-case userMessage.startsWith('.jid'):
-case userMessage.startsWith('.dp'):
-case userMessage.startsWith('.about'):
-case userMessage.startsWith('.lastseen'):
-case userMessage.startsWith('.profile'):
-case userMessage.startsWith('.download'):
-    await channelCommand.execute(sock, chatUpdate, isFromMe);
-    break;
-
-            case userMessage.startsWith('.unpair'):
+        await channelCommand.execute(sock, chatUpdate, isFromMe);
+        break;
+          case userMessage.startsWith('.unpair'):
                 const unpairArgs = rawText.slice(7).trim();
                 await unpairCommand(sock, chatId, message, unpairArgs);
                 commandExecuted = true;
