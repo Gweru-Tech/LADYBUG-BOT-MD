@@ -7,7 +7,7 @@ async function aiCommand(sock, chatId, message) {
         
         if (!text) {
             return await sock.sendMessage(chatId, { 
-                text: "Please provide a question after .gpt or .gemini\n\nExample: .gpt write a basic html code"
+                text: "Please provide a question after .gpt, .gemini, or .blackbox\n\nExample: .gpt write a basic html code"
             }, {
                 quoted: message
             });
@@ -20,7 +20,7 @@ async function aiCommand(sock, chatId, message) {
 
         if (!query) {
             return await sock.sendMessage(chatId, { 
-                text: "Please provide a question after .gpt or .gemini"
+                text: "Please provide a question after .gpt, .gemini, or .blackbox"
             }, {quoted:message});
         }
 
@@ -50,8 +50,8 @@ async function aiCommand(sock, chatId, message) {
                     `https://vapis.my.id/api/gemini?q=${encodeURIComponent(query)}`,
                     `https://api.siputzx.my.id/api/ai/gemini-pro?content=${encodeURIComponent(query)}`,
                     `https://api.ryzendesu.vip/api/ai/gemini?text=${encodeURIComponent(query)}`,
-                    `https://zellapi.autos/ai/chatbot?text=${encodeURIComponent(query)}`,
-                    `https://api.giftedtech.my.id/api/ai/geminiai?apikey=gifted&q=${encodeURIComponent(query)}`,
+                    `https://api-toxxic.zone.id/api/ai/blackbox?prompt=${encodeURIComponent(query)}`,
+                    `https://api-toxxic.zone.id/api/ai/venice?prompt=${encodeURIComponent(query)}`,
                     `https://api.giftedtech.my.id/api/ai/geminiaipro?apikey=gifted&q=${encodeURIComponent(query)}`
                 ];
 
@@ -75,6 +75,21 @@ async function aiCommand(sock, chatId, message) {
                     }
                 }
                 throw new Error('All Gemini APIs failed');
+            } else if (command === '.blackbox') {
+                // Call the Blackbox API (assuming a GET endpoint; adjust if it's POST or different)
+                const response = await axios.get(`https://www.blackbox.ai/api/chat?text=${encodeURIComponent(query)}`);
+                
+                if (response.data && response.data.result) {
+                    const answer = response.data.result;
+                    await sock.sendMessage(chatId, {
+                        text: answer
+                    }, {
+                        quoted: message
+                    });
+                    
+                } else {
+                    throw new Error('Invalid response from Blackbox API');
+                }
             }
         } catch (error) {
             console.error('API Error:', error);
@@ -102,4 +117,4 @@ async function aiCommand(sock, chatId, message) {
     }
 }
 
-module.exports = aiCommand; 
+module.exports = aiCommand;

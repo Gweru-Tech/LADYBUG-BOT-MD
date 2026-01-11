@@ -59,7 +59,7 @@ async function tiktokCommand(sock, chatId, message) {
 
         try {
             // Use only Siputzx API
-            const apiUrl = `https://api.siputzx.my.id/api/d/tiktok?url=${encodeURIComponent(url)}`;
+            const apiUrl = `https://api-toxxic.zone.id/api/downloader/tiktok-v1?url={encodeURIComponent(url)}`;
 
 
 
