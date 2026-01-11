@@ -3,12 +3,27 @@ const fs = require('fs');
 const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
+    // Determine the current time to select the appropriate greeting
+    const currentHour = new Date().getHours();
+    let greeting;
+
+    if (currentHour < 11) {
+        greeting = "Selamat Pagi"; // Good Morning
+    } else if (currentHour < 15) {
+        greeting = "Selamat Siang"; // Good Day
+    } else if (currentHour < 18) {
+        greeting = "Selamat Sore"; // Good Afternoon
+    } else {
+        greeting = "Selamat Malam"; // Good Evening
+    }
+
     const helpMessage = `
 ━━━━━━━━━━━━━━━━━┈⊷
-|✦ ${settings.botName || 'TUNZY-MD '}*  
-|✦ Version: *${settings.version || '1.0.0'}*
-|✦ by ${settings.botOwner || 'TUNZY'}
+|✦ ${settings.botName || 'LADYBUG-MD '}*  
+|✦ Version: *${settings.version || '3.0.0'}*
+|✦ by ${settings.botOwner || 'LADYBUG'}
 |✦ YouTube : ${global.ytch}
+|✦ ${greeting}!
 ━━━━━━━━━━━━━━━━━┈⊷ 
 ╭━━〔 📌 CORE COMMANDS 〕━━┈⊷
 │  ✪ .menu / .help
@@ -222,12 +237,12 @@ async function helpCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363422591784062@newsletter',
-                        newsletterName: 'TUNZY-MD',
+                        newsletterJid: 'https://whatsapp.com/channel/0029VbBjU8G4Y9lfinrbqS1U',
+                        newsletterName: 'LADYBUG-MD',
                         serverMessageId: -1
                     }
                 }
-            },{ quoted: message });
+            }, { quoted: message });
         } else {
             console.error('Bot image not found at:', imagePath);
             await sock.sendMessage(chatId, { 
@@ -236,8 +251,8 @@ async function helpCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363422591784062@newsletter',
-                        newsletterName: 'TUNZY-MD by CODEBREAKER x TUNZY',
+                        newsletterJid: 'https://whatsapp.com/channel/0029VbBjU8G4Y9lfinrbqS1U',
+                        newsletterName: 'Mr Ntando by CODEBREAKER',
                         serverMessageId: -1
                     } 
                 }
