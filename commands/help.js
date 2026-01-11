@@ -8,48 +8,48 @@ async function helpCommand(sock, chatId, message) {
     let greeting;
 
     if (currentHour < 11) {
-        greeting = "Selamat Pagi"; // Good Morning
+        greeting = "𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝙿𝚊𝚐𝚒"; // Good Morning
     } else if (currentHour < 15) {
-        greeting = "Selamat Siang"; // Good Day
+        greeting = "𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝚂𝚒𝚊𝚗𝚐"; // Good Day
     } else if (currentHour < 18) {
-        greeting = "Selamat Sore"; // Good Afternoon
+        greeting = "𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝚂𝚘𝚛𝚎"; // Good Afternoon
     } else {
-        greeting = "Selamat Malam"; // Good Evening
+        greeting = "𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝙼𝚊𝚕𝚊𝚖"; // Good Evening
     }
 
     const helpMessage = `
 ━━━━━━━━━━━━━━━━━┈⊷
-|✦ ${settings.botName || 'LADYBUG-MD '}*  
+|✦ ${settings.botName || 'ＬＡＤＹＢＵＧ-ＭＤ'}*  
 |✦ Version: *${settings.version || '3.0.0'}*
-|✦ by ${settings.botOwner || 'LADYBUG'}
+|✦ by ${settings.botOwner || 'ᴹʳ ᴺᵗᵃⁿᵈᵒ ᴼᶠᶜ'}
 |✦ YouTube : ${global.ytch}
 |✦ ${greeting}!
 ━━━━━━━━━━━━━━━━━┈⊷ 
-╭━━〔 📌 CORE COMMANDS 〕━━┈⊷
-│  ✪ .menu / .help
-│  ✪ .ping
-│  ✪ .alive
-│  ✪ .owner
-│  ✪ .jid
-│  ✪ .url
-│  ✪ .tts <text>
-│  ✪ .joke
-│  ✪ .quote
-│  ✪ .fact
-│  ✪ .news
-│  ✪ .weather <city>
-│  ✪ .lyrics <song>
-│  ✪ .8ball <question>
-│  ✪ .groupinfo
-│  ✪ .admins / .staff
-│  ✪ .vv
-│  ✪ .trt <text> <lang>
-│  ✪ .ss <link>
-│  ✪ .attp <text>
+╭━━〔 📌 𝙲𝙾𝚁𝙴 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂 〕━━┈⊷
+│  ✪ .𝔪𝔢𝔫𝔲 /𝔥𝔢𝔩𝔭
+│  ✪ .𝔭𝔦𝔫𝔤
+│  ✪ .𝔞𝔩𝔦𝔳𝔢
+│  ✪ .𝔬𝔴𝔫𝔢𝔯
+│  ✪ .𝔧𝔦𝔡
+│  ✪ .𝔲𝔯𝔩
+│  ✪ .𝔱𝔱𝔰
+│  ✪ .𝔧𝔬𝔨𝔢
+│  ✪ .𝔮𝔲𝔬𝔱𝔢 
+│  ✪ .𝔣𝔞𝔠𝔱
+│  ✪ .𝔫𝔢𝔴𝔰
+│  ✪ .𝔴𝔢𝔞𝔱𝔥𝔢𝔯 <𝔠𝔦𝔱𝔶>
+│  ✪ .𝔩𝔶𝔯𝔦𝔠𝔰 <𝔰𝔬𝔫𝔤>
+│  ✪ .8𝔟𝔞𝔩𝔩 <𝔮>
+│  ✪ .𝔤𝔯𝔬𝔲𝔭𝔦𝔫𝔣𝔬
+│  ✪ .𝔞𝔡𝔪𝔦𝔫𝔰 / 𝔰𝔱𝔞𝔣𝔣
+│  ✪ .𝔳𝔳
+│  ✪ .𝔱𝔯𝔱 <𝔱𝔢𝔵𝔱> <𝔩𝔞𝔫𝔤>
+│  ✪ .𝔰𝔰 <𝔩𝔦𝔫𝔨>
+│  ✪ .𝔞𝔱𝔱𝔭 <𝔱𝔢𝔵𝔱>
 ╰━━━━━━━━━━━━━━━━━┈⊷
 
-╭━━〔 🛡️ GROUP ADMINISTRATION 〕━━┈⊷
-│  ✪ .ban
+╭━━〔 🛡️ 𝙶𝚁𝙾𝚄𝙿 𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝚃𝙸𝙾𝙽 〕━━┈⊷
+│  ✪ .𝔟𝔞𝔫
 │  ✪ .kick
 │  ✪ .mute / .unmute
 │  ✪ .promote / .demote
